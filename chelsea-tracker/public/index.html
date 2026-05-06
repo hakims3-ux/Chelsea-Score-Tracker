@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chelsea FC · Scores Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="crest">
+        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="28" fill="#034694" stroke="#fff" stroke-width="2"/>
+          <text x="30" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#fff" font-family="Bebas Neue,sans-serif">CFC</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1 id="team-name">Chelsea FC</h1>
+        <p class="subtitle">Season Results Tracker</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Stats Bar ── -->
+  <section class="stats-bar">
+    <div class="stat-pill" id="stat-played">
+      <span class="stat-num">—</span>
+      <span class="stat-label">Played</span>
+    </div>
+    <div class="stat-pill win" id="stat-wins">
+      <span class="stat-num">—</span>
+      <span class="stat-label">Wins</span>
+    </div>
+    <div class="stat-pill draw" id="stat-draws">
+      <span class="stat-num">—</span>
+      <span class="stat-label">Draws</span>
+    </div>
+    <div class="stat-pill loss" id="stat-losses">
+      <span class="stat-num">—</span>
+      <span class="stat-label">Losses</span>
+    </div>
+    <div class="stat-pill goals" id="stat-gf">
+      <span class="stat-num">—</span>
+      <span class="stat-label">Goals For</span>
+    </div>
+    <div class="stat-pill goals-against" id="stat-ga">
+      <span class="stat-num">—</span>
+      <span class="stat-label">Goals Against</span>
+    </div>
+  </section>
+
+  <!-- ── Add Match Form ── -->
+  <section class="add-section">
+    <button class="toggle-form-btn" id="toggleFormBtn" onclick="toggleForm()">+ Add Match Result</button>
+
+    <div class="form-card" id="addForm" style="display:none;">
+      <h2>Log a Match</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label>Opponent</label>
+          <input type="text" id="f-opponent" placeholder="e.g. Manchester United" />
+        </div>
+        <div class="field">
+          <label>Date</label>
+          <input type="date" id="f-date" />
+        </div>
+        <div class="field">
+          <label>Home / Away</label>
+          <select id="f-homeaway">
+            <option value="Home">Home</option>
+            <option value="Away">Away</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Competition</label>
+          <input type="text" id="f-competition" placeholder="Premier League" />
+        </div>
+        <div class="field">
+          <label>Chelsea Score</label>
+          <input type="number" id="f-chelsea" min="0" placeholder="0" />
+        </div>
+        <div class="field">
+          <label>Opponent Score</label>
+          <input type="number" id="f-opponent-score" min="0" placeholder="0" />
+        </div>
+        <div class="field full">
+          <label>Goalscorers</label>
+          <input type="text" id="f-scorers" placeholder="e.g. Palmer (2), Jackson" />
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-submit" onclick="submitMatch()">Save Result</button>
+        <button class="btn-cancel" onclick="toggleForm()">Cancel</button>
+      </div>
+      <p class="form-error" id="formError"></p>
+    </div>
+  </section>
+
+  <!-- ── Loading / Error States ── -->
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <p>Loading Chelsea results…</p>
+  </div>
+  <div class="error-banner" id="errorBanner" style="display:none;">
+    ⚠️ Could not load data. Please check your connection and <button onclick="loadMatches()">retry</button>.
+  </div>
+
+  <!-- ── Match List ── -->
+  <main class="matches-container" id="matchesContainer"></main>
+
+  <script src="dashboard_project.js"></script>
+</body>
+</html>

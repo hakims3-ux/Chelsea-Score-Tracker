@@ -1,0 +1,19 @@
+{
+  "name": "chelsea-tracker",
+  "version": "1.0.0",
+  "description": "Chelsea FC Scores Tracker - Full Stack Express App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
